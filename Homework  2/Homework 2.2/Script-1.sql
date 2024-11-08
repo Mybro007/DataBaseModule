@@ -1,15 +1,6 @@
-create table if not exists Employee(
-	id SERIAL primary key,
-	name VARCHAR(20) not null,
-	department VARCHAR(20) not null
-);
-
-create table if not exists Boss(
-	id SERIAL primary key,
-	employee_id SERIAL references Employee(id)
-);
-
-create table if not exists EmloyeesBosses(
-	employee_id SERIAL references Employee(id),
-	boss_id SERIAL references Boss(id)
+CREATE TABLE IF NOT EXISTS Employee (
+    id SERIAL PRIMARY KEY,        
+    name VARCHAR(20) NOT NULL,    
+    department VARCHAR(20) NOT NULL, 
+    manager_id INT REFERENCES Employee(id) ON DELETE SET NULL 
 );

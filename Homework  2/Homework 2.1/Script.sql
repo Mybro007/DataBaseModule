@@ -37,3 +37,8 @@ CREATE TABLE IF NOT EXISTS Colection(
 	collection_year INTEGER NOT NULL,
 	track_id INTEGER REFERENCES Track(track_id)
 );
+
+CREATE TABLE IF NOT EXISTS CollectionsTracks(
+	collection_id INTEGER REFERENCES Colection(collection_id),
+	track_id INTEGER REFERENCES Track(track_id)
+);
